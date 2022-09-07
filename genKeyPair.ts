@@ -21,8 +21,6 @@ export const generateKeys = (): KeyInfo => {
     },
   });
 
-  //  console.log('PUB PEM:', publicKey)
-  //  console.log('PRIV PEM:', privateKey)
   const pub = publicKey
     .replace(/^\s*-*(.*PUBLIC KEY\b)-*\s*/, '')
     .replace(/\n/g, '')
@@ -36,13 +34,13 @@ export const generateKeys = (): KeyInfo => {
 }
 
 const main = async () => {
-  const json = generateKeys();
+  const keyPair = generateKeys();
   if (process.argv.length > 2) {
-    writeFileSync(process.argv[2], JSON.stringify(json, null, 4));
+    writeFileSync(process.argv[2], JSON.stringify(keyPair, null, 4));
     console.log(`wrote keys to ${process.argv[2]}`);
   } else {
-    console.log('PUBLIC KEY:', `${json.kid}:${json.pubKey}`);
-    console.log('PRIVATE KEY:', `${json.kid}:${json.privKey}`);
+    console.log('PUBLIC KEY:', `${keyPair.kid}:${keyPair.pubKey}`);
+    console.log('PRIVATE KEY:', `${keyPair.kid}:${keyPair.privKey}`);
   }
 }
 

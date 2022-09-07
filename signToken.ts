@@ -46,7 +46,7 @@ const genToken = (b64: string): TokenResponse => {
 
 const main = async () => {
   const result = genToken(process.argv[3]);
-  console.log(JSON.stringify(result, null, 4));
+  console.log(result);
 }
 
 main().catch((err) => console.error(err));
