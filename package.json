@@ -1,5 +1,5 @@
 {
-    "name": "genJwtToken",
+    "name": "testJWT",
     "scripts": {
         "genKey": "npx ts-node genKeyPair.ts",
         "signToken": "npx ts-node signToken.ts",
